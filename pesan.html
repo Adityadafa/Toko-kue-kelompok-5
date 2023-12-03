@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toko Online</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Membuat pesanan</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="pesan.html">pesan</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <div class="search-container">
+          <input type="text" id="search" placeholder="Cari kue" />
+        </div>
+      </ul>
+    </nav>
+
+    <section id="daftar-menu">
+      <h2>Daftar Menu</h2>
+      <ul>
+        <li>
+          <img src="gambar/bolu kukus.jpg" alt="Bolu Kukus" />
+          <h3>Bolu Kukus</h3>
+          <p>Harga: Rp2.000</p>
+          <input type="number" value="0" min="0" id="produk1-jumlah" />
+        </li>
+        <li>
+          <img src="gambar/kue pepe.jpg" alt="Kue Pepe" />
+          <h3>Kue Pepe</h3>
+          <p>Harga: Rp2.000</p>
+          <input type="number" value="0" min="0" id="produk2-jumlah" />
+        </li>
+        <li>
+          <img src="gambar/kue susu.jpg" alt="Kue Sus" />
+          <h3>Kue Sus</h3>
+          <p>Harga: Rp2.000</p>
+          <input type="number" value="0" min="0" id="produk3-jumlah" />
+        </li>
+        <li>
+          <img src="gambar/pai brownies.png" alt="Pai Brownies" />
+          <h3>Pai Brownies</h3>
+          <p>Harga: Rp3.000</p>
+          <input type="number" value="0" min="0" id="produk4-jumlah" />
+        </li>
+        <li>
+          <img src="gambar/pai buah.jpg" alt="Pai Buah" />
+          <h3>Pai Buah</h3>
+          <p>Harga: Rp3.000</p>
+          <input type="number" value="0" min="0" id="produk5-jumlah" />
+        </li>
+        <li>
+          <img src="gambar/pai susu.jpg" alt="Pai Susu" />
+          <h3>Pai Susu</h3>
+          <p>Harga: Rp3.000</p>
+          <input type="number" value="0" min="0" id="produk6-jumlah" />
+        </li>
+      </ul>
+    </section>
+
+    <section style="text-align: center">
+      <button id="tombol-pesan">Pesan</button>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 Toko Online Sederhana</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("tombol-pesan")
+        .addEventListener("click", function () {
+          // Mengumpulkan informasi pesanan dari input jumlah produk
+          var jumlahProduk1 = document.getElementById("produk1-jumlah").value;
+          var jumlahProduk2 = document.getElementById("produk2-jumlah").value;
+          var jumlahProduk3 = document.getElementById("produk3-jumlah").value;
+          var jumlahProduk4 = document.getElementById("produk4-jumlah").value;
+          var jumlahProduk5 = document.getElementById("produk5-jumlah").value;
+          var jumlahProduk6 = document.getElementById("produk6-jumlah").value;
+
+          // Harga produk per item
+          var hargaProduk1 = 2000;
+          var hargaProduk2 = 2000;
+          var hargaProduk3 = 2000;
+          var hargaProduk4 = 3000;
+          var hargaProduk5 = 3000;
+          var hargaProduk6 = 3000;
+
+          // Menghitung total harga
+          var totalHarga =
+            jumlahProduk1 * hargaProduk1 +
+            jumlahProduk2 * hargaProduk2 +
+            jumlahProduk3 * hargaProduk3 +
+            jumlahProduk4 * hargaProduk4 +
+            jumlahProduk5 * hargaProduk5 +
+            jumlahProduk6 * hargaProduk6;
+
+          // Membuat pesan WhatsApp sesuai dengan pesanan
+          var pesanWhatsApp = "Saya ingin memesan:\n";
+
+          function tambahProduk(namaProduk, jumlah, harga) {
+            if (jumlah > 0) {
+              pesanWhatsApp +=
+                namaProduk + " x " + jumlah + " \t= Rp" + jumlah * harga + "\n";
+            }
+          }
+
+          tambahProduk("Bolu Kukus\t", jumlahProduk1, hargaProduk1);
+          tambahProduk("Kue Pepe\t", jumlahProduk2, hargaProduk2);
+          tambahProduk("Kue Sus\t\t", jumlahProduk3, hargaProduk3);
+          tambahProduk("Pai Brownies\t", jumlahProduk4, hargaProduk4);
+          tambahProduk("Pai Buah\t\t", jumlahProduk5, hargaProduk5);
+          tambahProduk("Pai Susu\t\t", jumlahProduk6, hargaProduk6);
+
+          pesanWhatsApp += "\nTotal Harga\t\t= Rp" + totalHarga;
+
+          // Mengarahkan pengguna ke WhatsApp dengan pesan yang sesuai
+          var linkWhatsApp =
+            "https://wa.me/6285695708538?text=" +
+            encodeURIComponent(pesanWhatsApp);
+          window.open(linkWhatsApp, "_blank");
+        });
+
+      // Mendapatkan elemen-elemen yang diperlukan
+      const searchInput = document.getElementById("search");
+      const menuItems = document.querySelectorAll("#daftar-menu li");
+
+      // Fungsi untuk melakukan pencarian
+      function searchMenu() {
+        const query = searchInput.value.toLowerCase();
+
+        menuItems.forEach((menuItem) => {
+          const menuName = menuItem
+            .querySelector("h3")
+            .textContent.toLowerCase();
+          if (menuName.includes(query)) {
+            menuItem.style.display = "block";
+          } else {
+            menuItem.style.display = "none";
+          }
+        });
+      }
+
+      // Event listener untuk mengaktifkan pencarian saat input berubah
+      searchInput.addEventListener("input", searchMenu);
+    </script>
+  </body>
+</html>

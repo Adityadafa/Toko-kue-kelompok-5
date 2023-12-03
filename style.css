@@ -1,0 +1,287 @@
+/* Reset gaya default browser */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Gaya umum halaman */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+}
+
+nav ul .search-container {
+  display: inline;
+  margin-top: 10px; /* Untuk memberikan ruang di atas elemen pencarian */
+}
+
+#search {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+nav input[type="text"] {
+  padding: 5px;
+}
+
+nav button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Styling untuk bagian informasi kontak */
+#kontak {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 40px;
+}
+
+.kontak {
+  max-width: 400px;
+}
+
+.kontak h2 {
+  color: #333;
+  font-size: 28px;
+}
+
+.kontak p {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* Styling untuk kontainer peta */
+.map-container {
+  flex: 2;
+  margin-left: 40px;
+}
+
+/* Responsif untuk tata letak pada layar yang lebih kecil */
+@media (max-width: 768px) {
+  #kontak {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-container {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+
+/* Efek hover untuk nomor telepon */
+.kontak p:last-child:hover {
+  color: white;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Styling untuk tombol pesan */
+.pesan-button {
+  background-color: black;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.pesan-button:hover {
+  background-color: grey;
+}
+
+#daftar-menu {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#daftar-menu h2 {
+  margin-bottom: 20px;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#daftar-menu li {
+  list-style-type: none;
+  margin: 0 0 20px 0;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  width: 200px;
+}
+
+#daftar-menu img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#daftar-menu h3 {
+  margin: 0;
+}
+
+#daftar-menu input[type="number"] {
+  width: 50px;
+  padding: 5px;
+}
+
+#daftar-menu button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+.menu-container .produk {
+  text-align: center;
+  margin: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 400px;
+}
+
+.menu-container .produk img {
+  max-width: 100%;
+  height: 200px;
+}
+
+.menu-container .produk button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#daftar-menu ul {
+  display: flex;
+  flex-wrap: wrap; /* Mengizinkan baris baru jika tidak cukup ruang */
+  justify-content: space-around;
+}
+
+#daftar-menu li {
+  list-style-type: none;
+  margin: 0 0 20px 0;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  width: calc(
+    33.33% - 20px
+  ); /* Lebar setiap item menu, dengan ruang 20px di antara item */
+}
+@media (max-width: 768px) {
+  #daftar-menu li {
+    width: calc(
+      50% - 20px
+    ); /* Jika lebar layar kurang dari 768px, tampilkan dua item dalam satu baris */
+  }
+}
+
+#daftar-menu img {
+  max-width: 100%; /* Lebar maksimum gambar */
+  height: auto; /* Menjaga rasio aspek gambar */
+  margin-bottom: 10px; /* Jarak antara gambar dan teks */
+}
+
+#daftar-menu h3 {
+  margin: 0;
+}
+
+#daftar-menu input[type="number"] {
+  width: 50px;
+  padding: 5px;
+}
+
+#daftar-menu button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#tombol-pesan {
+  padding: 15px 30px; /* Sesuaikan ukuran padding sesuai keinginan Anda */
+  font-size: 18px; /* Sesuaikan ukuran font sesuai keinginan Anda */
+  background-color: #333; /* Ganti warna latar belakang sesuai keinginan Anda */
+  color: #fff; /* Ganti warna teks sesuai keinginan Anda */
+  border: none; /* Hilangkan garis tepi tombol */
+  cursor: pointer;
+}
